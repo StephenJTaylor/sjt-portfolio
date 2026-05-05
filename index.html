@@ -1667,7 +1667,7 @@
         </div>
       </div>
       </div>
-    <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact">
       <p style="display:none;"><input name="bot-field"></p>
       <div class="form-group">
@@ -1727,17 +1727,32 @@
     });
   });
 
-  function handleSubmit(e) {
+  // Handle form submission via fetch so page doesn't reload
+  document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = '#2a7a5a';
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
-  }
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    const data = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#2a7a5a';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+      }, 4000);
+    })
+    .catch(() => {
+      btn.textContent = 'Something went wrong — please email directly';
+      btn.style.background = '#7a2a2a';
+    });
+  });
 
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
