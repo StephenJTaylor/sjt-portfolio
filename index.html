@@ -1667,22 +1667,24 @@
         </div>
       </div>
       </div>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;"><input name="bot-field"></p>
       <div class="form-group">
         <label class="form-label">Name</label>
-        <input type="text" class="form-input" placeholder="Your name">
+        <input type="text" class="form-input" name="name" placeholder="Your name" required>
       </div>
       <div class="form-group">
         <label class="form-label">Email</label>
-        <input type="email" class="form-input" placeholder="your@email.com">
+        <input type="email" class="form-input" name="email" placeholder="your@email.com" required>
       </div>
       <div class="form-group">
         <label class="form-label">Project Type</label>
-        <input type="text" class="form-input" placeholder="e.g. Branded content, Documentary...">
+        <input type="text" class="form-input" name="project-type" placeholder="e.g. Branded content, Documentary...">
       </div>
       <div class="form-group">
         <label class="form-label">Message</label>
-        <textarea class="form-textarea" placeholder="Tell me about your project..."></textarea>
+        <textarea class="form-textarea" name="message" placeholder="Tell me about your project..." required></textarea>
       </div>
       <button type="submit" class="btn-submit">Send Message →</button>
     </form>
