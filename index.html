@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stephen J Taylor — Video Editor & Filmmaker</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -480,6 +481,22 @@
     gap: 4px;
   }
 
+  @media (max-width: 768px) {
+    .filter-row {
+      padding: 0 24px 32px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex-wrap: nowrap;
+      gap: 6px;
+    }
+    .filter-row::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
+
   .filter-btn {
     font-size: 10px;
     letter-spacing: 2px;
@@ -717,6 +734,15 @@
     gap: 80px;
     align-items: start;
     margin-top: 48px;
+  }
+
+  .services-layout--full {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .services-layout--full .services-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .services-intro h2 {
@@ -1583,11 +1609,7 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="section-eyebrow">What I Do</div>
-  <div class="services-layout">
-    <div class="services-intro">
-      <h2>Craft at Every Stage.</h2>
-      <p>From first assembly to final delivery — I handle the full post-production pipeline with the attention to detail that makes the difference between content and something people actually watch.</p>
-    </div>
+  <div class="services-layout services-layout--full">
     <div class="services-list">
       <div class="service-item">
         <span class="service-arrow">→</span>
@@ -1619,7 +1641,6 @@
         <div class="service-name">Client Communication</div>
         <div class="service-desc">Managing feedback, revisions, and deadlines — professionally and transparently.</div>
       </div>
-    </div>
   </div>
 </section>
 
