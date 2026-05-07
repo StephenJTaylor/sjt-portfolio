@@ -1098,14 +1098,19 @@
     .hero-title { font-size: 56px; }
     .hero-meta { flex-direction: column; gap: 32px; }
     .hero-stats { justify-content: flex-start; }
-    #showreel, #services, #about, #contact { padding: 64px 24px; }
-    .showreel-layout, .services-layout, .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-    .services-list { grid-template-columns: 1fr; }
+    #services, #about, #contact { padding: 64px 24px; }
+    .showreel-layout, .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .services-layout--full { display: block; }
+    .services-layout--full .services-list { grid-template-columns: 1fr 1fr; width: 100%; }
     .work-grid { grid-template-columns: 1fr 1fr; }
-    .work-header, .filter-row { padding-left: 24px; padding-right: 24px; }
+    .work-header { padding-left: 24px; padding-right: 24px; }
+    .work-header h2 { font-size: 32px; }
     footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; }
     .footer-links { gap: 20px; }
     .scroll-hint { display: none; }
+    .about-left h2 { font-size: 48px; }
+    .contact-left h2 { font-size: 48px; }
+    .hero-tags { justify-content: flex-start; }
   }
 </style>
 </head>
